@@ -1,13 +1,16 @@
-FROM golang:1.19-alpine AS build_base
+FROM fuzzers/go-fuzz:1.2.0 
 WORKDIR /tmp/app
 COPY go.mod .
 COPY go.sum .
 RUN go mod download
+# COPY fuzzing .
 COPY . .
-RUN CGO_ENABLED=0 go test -v
-WORKDIR /tmp/app/cmd/enola
-RUN go build -o ./enola .
+WORKDIR /tmp/app/cmd/enola/fuzzing
+RUN go-fuzz-build -libfuzzer -o fuzzer.a
+RUN clang -fsanitize=fuzzer fuzzer.a -o fuzzer.libfuzzer
+RUN mv fuzzer.libfuzzer /go
 
-FROM alpine:3.17 
-COPY --from=build_base /tmp/app/cmd/enola/enola /app/enola
-ENTRYPOINT ["/app/enola"]
+#entrypoint? idk docker.
+ENTRYPOINT []
+CMD ["/go/fuzzer.libfuzzer"]
+
