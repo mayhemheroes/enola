@@ -1,0 +1,6 @@
+image: jdkohls/enola-go:latest
+duration: 90
+project: enola-go
+target: enola
+cmds:
+  - cmd: enola "$(<@@)"
