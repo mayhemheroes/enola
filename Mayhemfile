@@ -1,6 +1,5 @@
 image: jdkohls/enola-go:latest
-duration: 90
-project: enola-go
-target: enola
+project: enola-go-all
+target: enola-go
 cmds:
-  - cmd: enola "$(<@@)"
+  - cmd: /tmp/app/fuzzing/fuzzer.libfuzzer
