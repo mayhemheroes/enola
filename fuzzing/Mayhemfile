@@ -1,5 +1,4 @@
-image: jdkohls/enola-go:latest
 project: enola-go-all
-target: enola-go
+target: username check
 cmds:
   - cmd: /tmp/app/fuzzing/fuzzer.libfuzzer
