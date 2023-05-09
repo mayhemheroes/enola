@@ -24,7 +24,7 @@ RUN clang -fsanitize=fuzzer fuzzer.a -o fuzzer.libfuzzer
 #RUN mv fuzzer.libfuzzer /go
 
 #entrypoint? idk docker.
-ENTRYPOINT []
+
 CMD ["/tmp/app/fuzzing/fuzzer.libfuzzer"]
 #docker run --rm -it fuzzers/go-fuzz:1.2.0 sh
 
