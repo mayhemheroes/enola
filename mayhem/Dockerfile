@@ -1,4 +1,4 @@
-FROM fuzzers/go-fuzz:1.2.0
+FROM fuzzers/go-fuzz:1.2.0 as builder
 
 #Update go
 
@@ -17,10 +17,13 @@ COPY go.sum .
 RUN go mod download
 COPY . .
 WORKDIR /tmp/app/fuzzing
-RUN go-fuzz-build -libfuzzer -o fuzzer.a
-RUN clang -fsanitize=fuzzer fuzzer.a -o fuzzer.libfuzzer
+RUN go-fuzz-build -libfuzzer -o username_fuzzer.a
+RUN clang -fsanitize=fuzzer username_fuzzer.a -o username_fuzzer.libfuzzer
 
 #entrypoint? idk docker.
 
-CMD ["/tmp/app/fuzzing/fuzzer.libfuzzer"]
+FROM ubuntu:20.04
+COPY --from=builder /tmp/app/fuzzing/username_fuzzer.libfuzzer /
+
+CMD ["username_fuzzer.libfuzzer"]
 
