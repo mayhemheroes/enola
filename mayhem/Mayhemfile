@@ -1,4 +1,4 @@
 project: enola-go-all
 target: username-check
 cmds:
-  - cmd: fuzzer.libfuzzer
+  - cmd: ./fuzzer.libfuzzer
