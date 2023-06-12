@@ -1,0 +1,6 @@
+github.com/dvyukov/go-fuzz v0.0.0-20220726122315-1d375ef9f9f6 h1:sE4tvxWw01v7K3MAHwKF2UF3xQbgy23PRURntuV1CkU=
+github.com/dvyukov/go-fuzz v0.0.0-20220726122315-1d375ef9f9f6/go.mod h1:11Gm+ccJnvAhCNLlf5+cS9KjtbaD5I5zaZpFMsTHWTw=
+github.com/theyahya/enola v0.2.3 h1:OiohYxJLnsZsOEJaGXb25K+ffBHjD3L09lnjLTNp4O0=
+github.com/theyahya/enola v0.2.3/go.mod h1:Rt9EpH6QAPqkjC1iZVw5gdPjpkIX38whNwFgTAxJ6G8=
+golang.org/x/sync v0.1.0 h1:wsuoTGHzEhffawBOhz5CYhcrV4IdKZbEyZjBMuTp12o=
+golang.org/x/sync v0.1.0/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
